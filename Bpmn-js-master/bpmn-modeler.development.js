@@ -580,6 +580,7 @@
 	  };
 	}
 
+	
 	function toMatcher(matcher) {
 	  return isFunction(matcher) ? matcher : function (e) {
 	    return e === matcher;
@@ -14353,7 +14354,6 @@
 	    var text = textRenderer.createText(label || '', options);
 
 	    classes$1(text).add('djs-label');
-
 	    append(parentGfx, text);
 
 	    return text;
@@ -19646,7 +19646,7 @@
 	 * @return {String}                 id that may be used to reference the overlay for update or removal
 	 */
 	Overlays.prototype.add = function(element, type, overlay) {
-
+		
 	  if (isObject(type)) {
 	    overlay = type;
 	    type = null;
@@ -29748,7 +29748,8 @@
 	      previousBounds = active.context.bounds,
 	      newBounds = this.$textbox.getBoundingClientRect(),
 	      newText = this.getValue(),
-	      previousText = active.context.text;
+		  previousText = active.context.text;
+		
 
 	  if (
 	    newText !== previousText ||
@@ -29756,6 +29757,8 @@
 	    newBounds.width !== previousBounds.width
 	  ) {
 	    containerBounds = this._textbox.container.getBoundingClientRect();
+
+		console.log(newText)
 
 	    active.provider.update(active.element, newText, active.context.text, {
 	      x: newBounds.left - containerBounds.left,
@@ -36941,7 +36944,8 @@
 
 	  // listen to dblclick on non-root elements
 	  eventBus.on('element.dblclick', function(event) {
-	    activateDirectEdit(event.element, true);
+		activateDirectEdit(event.element, true);
+		console.log(event.element.businessObject.name)
 	  });
 
 	  // complete on followup canvas operation
