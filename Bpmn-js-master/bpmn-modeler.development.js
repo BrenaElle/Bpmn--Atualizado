@@ -10,6 +10,8 @@
  *
  * Date: 2019-07-22
  */
+
+
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -5057,6 +5059,9 @@
 	  var event = new InternalEvent();
 
 	  event.init(data);
+
+	  
+	//   console.log(event)
 
 	  return event;
 	};
@@ -29760,12 +29765,18 @@
 
 		console.log(newText)
 
+		// PreviewSupport.prototype.getGfx = function(element) {
+		// 	return this._elementRegistry.getGraphics(element);
+		// };
+
+
 	    active.provider.update(active.element, newText, active.context.text, {
 	      x: newBounds.left - containerBounds.left,
 	      y: newBounds.top - containerBounds.top,
 	      width: newBounds.width,
 	      height: newBounds.height
-	    });
+		});
+		description(active)
 	  }
 
 	  this._fire('complete');
@@ -36931,6 +36942,41 @@
 
 	}
 
+	function description(event){
+
+		document.getElementById("sideMenuContainer").style.width = "500px";
+
+		if ( $('#description').children().length == 0 ) {
+			//console.log(event.element.businessObject.comments)
+			var id = document.getElementById('inputID');
+			var name = document.getElementById('inputName');
+			var desc = document.getElementById('inputDesc');
+			id.value = event.element.businessObject.id;
+			if(event.element.businessObject.name == null){
+				name.value = ''
+				name.placeholder = 'Digite um nome';
+			}else{
+				name.value = event.element.businessObject.name;
+			}
+
+			if(event.element.businessObject.comments == null){
+				desc.value = ''
+				desc.placeholder = 'Digite uma descrição';
+			}else{
+				desc.value = event.element.businessObject.comments;
+			}
+			// id.innerHTML = ('ID: ' + data.element.businessObject.id)
+			// form.appendChild(id);
+		}else{
+			var id = document.getElementById('inputID');
+			var name = document.getElementById('inputName');
+			var desc = document.getElementById('inputDesc');
+			id.value = event.element.businessObject.id;
+			name.value = event.element.businessObject.name;
+			desc.value = event.element.businessObject.comments;
+		}
+	};
+
 	function LabelEditingProvider(
 	    eventBus, bpmnFactory, canvas, directEditing,
 	    modeling, resizeHandles, textRenderer) {
@@ -36944,9 +36990,11 @@
 
 	  // listen to dblclick on non-root elements
 	  eventBus.on('element.dblclick', function(event) {
+		description(event);
 		activateDirectEdit(event.element, true);
-		console.log(event.element.businessObject.name)
-	  });
+		// console.log(event.element.businessObject.text)
+		// console.log(event.element.businessObject.name)
+	});
 
 	  // complete on followup canvas operation
 	  eventBus.on([
@@ -54127,6 +54175,9 @@
 	 * @param {Array<didi.Module>} [options.modules] a list of modules to override the default modules
 	 * @param {Array<didi.Module>} [options.additionalModules] a list of modules to use with the default modules
 	 */
+	
+
+
 	function Modeler(options) {
 	  Viewer.call(this, options);
 
@@ -54243,3 +54294,4 @@
 	return Modeler;
 
 }));
+

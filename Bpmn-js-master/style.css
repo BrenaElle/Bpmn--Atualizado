@@ -1,0 +1,189 @@
+html,
+body,
+#canvas {
+  height: 100%;
+
+  padding: 0;
+
+  padding-top: 20px;
+
+  margin: 0;
+}
+
+.diagram-note {
+  background-color: rgba(66, 180, 21, 0.7);
+
+  color: White;
+
+  border-radius: 5px;
+
+  font-family: Arial;
+
+  font-size: 12px;
+
+  padding: 5px;
+
+  min-height: 16px;
+
+  width: 50px;
+
+  text-align: center;
+}
+
+.needs-discussion:not(.djs-connection) .djs-visual > :nth-child(1) {
+  stroke: rgba(66, 180, 21, 0.7) !important;
+  /* color elements as red */
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #fcfcfc;
+  font: 12px "PT Sans", Helvetica, Arial, sans-serif;
+}
+
+textarea {
+  margin-top: 3px;
+  margin-bottom: 6px;
+  width: 230px;
+  height: 300px;
+  border-radius: 6px;
+}
+
+input {
+  margin-top: 3px;
+  margin-bottom: 6px;
+  width: 230px;
+  height: 30px;
+  border-radius: 6px;
+}
+
+label,
+a {
+  color: #f06060;
+  text-decoration: none;
+  -moz-transition: 0.1s all ease-in-out;
+  -o-transition: 0.1s all ease-in-out;
+  -webkit-transition: 0.1s all ease-in-out;
+  transition: 0.1s all ease-in-out;
+}
+
+a:hover {
+  color: #fcfcfc;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
+
+nav {
+  background: #202020;
+  box-shadow: 0px 1px 5px #5c4b51;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  font: 14px Rokkitt;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+#userPLink {
+  position: relative;
+}
+
+nav a,
+#sideMenu {
+  margin: 0 10px 0 0;
+  text-shadow: 1px 1px 2px #212121;
+}
+
+#sideMenuContainer > a:hover {
+  padding-left: 3px;
+}
+
+#sideMenu {
+  color: #f06060;
+  float: right;
+  z-index: 5;
+}
+
+#sideMenuContainer {
+  background: #202020;
+  height: 100%;
+  padding: 10px;
+  position: fixed;
+  top: 56px;
+  right: -200px;
+  width: 200px;
+  z-index: 4;
+}
+
+#sideMenuContainer h2 {
+  color: #fcfcfc;
+  font: 16px "PT Sans", Helvetica, Arial, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#sideMenuContainer > a {
+  display: block;
+  padding: 5px 10px;
+}
+
+#sideMenuContainer > a::after {
+  content: attr(title);
+  font: 12px "PT Sans", Helvetica, Arial, sans-serif;
+  padding-left: 10px;
+  text-transform: uppercase;
+}
+
+.menu {
+  padding: 0;
+  margin: 0;
+  width: 400px;
+  float: left;
+}
+
+.menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border: 0;
+  float: left;
+}
+
+.menu ul li {
+  float: left;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.menu ul li a {
+  float: left;
+  margin: 0;
+  padding: 13px 10px;
+  text-decoration: none;
+}
