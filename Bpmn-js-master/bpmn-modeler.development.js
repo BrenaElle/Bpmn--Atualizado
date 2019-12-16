@@ -36947,7 +36947,6 @@
 		document.getElementById("sideMenuContainer").style.width = "500px";
 
 		if ( $('#description').children().length == 0 ) {
-			//console.log(event.element.businessObject.comments)
 			var id = document.getElementById('inputID');
 			var name = document.getElementById('inputName');
 			var desc = document.getElementById('inputDesc');
@@ -36959,11 +36958,11 @@
 				name.value = event.element.businessObject.name;
 			}
 
-			if(event.element.businessObject.comments == null){
+			if(event.element.businessObject.$attrs.comments == null){
 				desc.value = ''
 				desc.placeholder = 'Digite uma descrição';
 			}else{
-				desc.value = event.element.businessObject.comments;
+				desc.value = event.element.businessObject.$attrs.comments;
 			}
 			// id.innerHTML = ('ID: ' + data.element.businessObject.id)
 			// form.appendChild(id);

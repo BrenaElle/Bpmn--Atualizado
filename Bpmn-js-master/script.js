@@ -68,8 +68,8 @@ function download_diagram() {
     }
 
     var x = prompt("digite o nome do arquivo");
-
-    if (x == null) {
+    
+    if (x == null || x == "") {
       alert("Download cancelado");
     } else {
       var filename = x + ".bpmn";
@@ -90,8 +90,6 @@ function download_diagram() {
   });
 }
 
-// load external diagram file via AJAX and open it
-//$.get(diagramUrl(), openDiagram, 'text')
 
 diagramUrl();
 
@@ -107,12 +105,9 @@ function openCloseNav() {
   }
 }
 
-function teste() {
+function registry_changer() {
   var elementRegistry = bpmnModeler.get("elementRegistry");
   var modeling = bpmnModeler.get("modeling");
-  // var elements = elementRegistry.filter(function(element) {
-  //   return element, "bpmn:UserTask";
-  // });
   var startEventShape = elementRegistry.get(
     document.getElementById("inputID").value
   );
